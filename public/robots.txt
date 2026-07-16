@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://essencepublicschool.edu.in/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 10

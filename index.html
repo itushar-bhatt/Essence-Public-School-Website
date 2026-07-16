@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence Public School - Inspiring Minds, Building Futures</title>
+    <meta name="description" content="Essence Public School is a premier educational institution offering quality education from Pre-Primary to Senior Secondary. Admissions open for 2026-27.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B3D91',
+                        secondary: '#F4B400',
+                        accent: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-primary {
+            @apply bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl;
+        }
+        .btn-secondary {
+            @apply bg-secondary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl;
+        }
+        .section-title {
+            @apply text-4xl md:text-5xl font-bold text-primary mb-4 font-poppins;
+        }
+        .section-subtitle {
+            @apply text-lg text-gray-600 mb-12 font-inter;
+        }
+        .card {
+            @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
+                        EP
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-xl font-bold text-primary font-poppins">Essence Public School</h1>
+                        <p class="text-xs text-gray-600 italic">Inspiring Minds, Building Futures</p>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">About</a>
+                    <a href="#academics" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">Academics</a>
+                    <a href="#facilities" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">Facilities</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">Gallery</a>
+                    <a href="#news" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">News & Events</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group">Contact</a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="tel:+911112345678" class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>+91 11 1234 5678</span>
+                    </a>
+                    <a href="#admissions" class="bg-secondary text-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                        Admission
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-primary p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-primary font-medium py-2">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-primary font-medium py-2">About</a>
+                <a href="#academics" class="block text-gray-700 hover:text-primary font-medium py-2">Academics</a>
+                <a href="#facilities" class="block text-gray-700 hover:text-primary font-medium py-2">Facilities</a>
+                <a href="#gallery" class="block text-gray-700 hover:text-primary font-medium py-2">Gallery</a>
+                <a href="#news" class="block text-gray-700 hover:text-primary font-medium py-2">News & Events</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary font-medium py-2">Contact</a>
+                <a href="#admissions" class="block bg-secondary text-primary text-center px-6 py-3 rounded-lg font-semibold mt-4">Admission</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80" alt="School Campus" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50"></div>
+        </div>
+
+        <!-- Floating Shapes -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-6">
+                <div class="inline-block bg-secondary text-primary px-6 py-2 rounded-full font-semibold text-sm md:text-base shadow-lg">
+                    Admissions Open for Session 2026-27
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-poppins leading-tight">
+                    Empowering Young Minds for a Brighter Tomorrow
+                </h1>
+
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
+                    Join a community dedicated to academic excellence, character development, and holistic growth. Where every child discovers their potential.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#admissions" class="group flex items-center space-x-2 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 bg-secondary text-primary">
+                        <span>Apply Now</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                        Contact Us
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-secondary font-poppins">2500+</div>
+                        <div class="text-sm text-gray-300 mt-1">Students</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-secondary font-poppins">150+</div>
+                        <div class="text-sm text-gray-300 mt-1">Teachers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-secondary font-poppins">28+</div>
+                        <div class="text-sm text-gray-300 mt-1">Years of Excellence</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-secondary font-poppins">98%</div>
+                        <div class="text-sm text-gray-300 mt-1">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="flex flex-col items-center text-white cursor-pointer" onclick="document.getElementById('stats').scrollIntoView({behavior: 'smooth'})">
+                <span class="text-sm mb-2">Scroll to explore</span>
+                <i data-lucide="chevron-down" class="w-6 h-6 animate-bounce"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center group fade-in">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="users" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-bold text-primary font-poppins mb-2">2500+</div>
+                    <div class="text-gray-600 font-medium">Students</div>
+                </div>
+                <div class="text-center group fade-in">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-bold text-primary font-poppins mb-2">150+</div>
+                    <div class="text-gray-600 font-medium">Teachers</div>
+                </div>
+                <div class="text-center group fade-in">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="award" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-bold text-primary font-poppins mb-2">28+</div>
+                    <div class="text-gray-600 font-medium">Years of Excellence</div>
+                </div>
+                <div class="text-center group fade-in">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-bold text-primary font-poppins mb-2">98%</div>
+                    <div class="text-gray-600 font-medium">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">About Our School</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">A legacy of excellence in education, nurturing young minds for over two decades</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white rounded-2xl shadow-lg p-8 slide-in-left">
+                    <h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Our History</h3>
+                    <p class="text-gray-700 leading-relaxed">Established in 1995, Essence Public School has been a beacon of excellence in education for over 28 years. Founded with a vision to provide holistic education that nurtures intellectual, physical, emotional, and social development, we have grown from a small institution to one of the most respected schools in the region.</p>
+                </div>
+
+                <div class="space-y-6 slide-in-right">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Our Mission</h3>
+                        <p class="text-gray-700 leading-relaxed">To provide a stimulating learning environment that encourages curiosity, creativity, and critical thinking, preparing students to become responsible global citizens who contribute positively to society.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Our Vision</h3>
+                        <p class="text-gray-700 leading-relaxed">To be a leading educational institution that empowers students to achieve academic excellence while developing strong character, ethical values, and a lifelong love for learning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principal's Message -->
+            <div class="bg-gradient-to-r from-primary to-primary/90 rounded-2xl shadow-xl p-8 md:p-12 fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1">
+                        <div class="relative w-48 h-48 mx-auto md:mx-0">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Dr. Sarah Johnson" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary rounded-full flex items-center justify-center">
+                                <i data-lucide="quote" class="w-12 h-12 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 text-white">
+                        <h3 class="text-2xl font-bold mb-2 font-poppins">Dr. Sarah Johnson</h3>
+                        <p class="text-secondary font-semibold mb-4">Principal</p>
+                        <p class="text-gray-200 leading-relaxed italic text-lg">"At Essence Public School, we believe every child is unique and has infinite potential. Our dedicated faculty and state-of-the-art facilities create the perfect environment for students to explore, learn, and grow. We are committed to nurturing not just academic excellence but also character, creativity, and compassion. Together, we build futures that shine bright."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">We provide a nurturing environment that fosters academic excellence and holistic development</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="users" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Experienced Teachers</h3>
+                        <p class="text-gray-600 leading-relaxed">Highly qualified and dedicated faculty with years of teaching experience and passion for nurturing young minds.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="monitor" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Smart Classrooms</h3>
+                        <p class="text-gray-600 leading-relaxed">Technology-enabled classrooms with interactive smart boards, digital learning tools, and modern teaching aids.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="flask-conical" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Modern Labs</h3>
+                        <p class="text-gray-600 leading-relaxed">State-of-the-art science, computer, and mathematics laboratories equipped with the latest equipment and technology.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="trophy" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Sports Excellence</h3>
+                        <p class="text-gray-600 leading-relaxed">Comprehensive sports programs with professional coaching in cricket, basketball, swimming, athletics, and more.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="shield" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Safe Campus</h3>
+                        <p class="text-gray-600 leading-relaxed">24/7 security, CCTV surveillance, and strict safety protocols ensure a secure learning environment for all students.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-secondary/20 fade-in">
+                    <div class="flex flex-col items-center text-center space-y-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-secondary/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="relative w-16 h-16 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">
+                                <i data-lucide="sparkles" class="w-8 h-8 text-white group-hover:text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary font-poppins">Holistic Development</h3>
+                        <p class="text-gray-600 leading-relaxed">Focus on overall personality development through arts, music, dance, drama, and various extracurricular activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Academic Programs</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">Comprehensive curriculum designed to nurture intellectual curiosity and academic excellence</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="Pre Primary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Pre Primary</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Play-based learning environment that fosters creativity, social skills, and foundational knowledge through engaging activities.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-primary mb-2">Key Subjects:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Language Skills</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Number Work</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Art & Craft</span>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Learn More</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80" alt="Primary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Primary</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive curriculum building strong academic foundations while encouraging curiosity and independent thinking.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-primary mb-2">Key Subjects:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">English</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Mathematics</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Science</span>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Learn More</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Middle School" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Middle School</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Advanced learning with focus on conceptual understanding, critical thinking, and practical application of knowledge.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-primary mb-2">Key Subjects:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">English</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Mathematics</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Science</span>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Learn More</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110a6f2?w=600&q=80" alt="Senior Secondary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Senior Secondary</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Specialized streams (Science, Commerce, Humanities) with expert guidance for board exams and career preparation.</p>
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-primary mb-2">Key Subjects:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Physics</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Chemistry</span>
+                                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Maths</span>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Learn More</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Our Facilities</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">World-class infrastructure designed to provide the best learning environment</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Computer Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="monitor" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Computer Lab</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Advanced computer laboratory with high-speed internet, latest software, and one-to-one student-computer ratio.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80" alt="Science Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="flask-conical" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Science Lab</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Well-equipped laboratories for Physics, Chemistry, and Biology with modern apparatus and safety equipment.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80" alt="Library" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="book-open" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Library</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Extensive collection of books, journals, and digital resources fostering a love for reading and research.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&q=80" alt="Transport" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="bus" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Transport</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Safe and reliable fleet of buses with GPS tracking, covering all major areas of the city.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=80" alt="Sports Complex" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="trophy" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Sports Complex</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Indoor and outdoor sports facilities including basketball court, cricket ground, swimming pool, and gymnasium.</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Medical Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="heart-pulse" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-xl font-bold text-white font-poppins">Medical Room</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm leading-relaxed">Fully equipped medical facility with qualified nurse and regular health checkups for students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">Capturing moments of learning, growth, and celebration at Essence Public School</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 fade-in">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80" alt="School Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                        <p class="text-white text-sm font-medium">School Building</p>
+                    </div>
+                </div>
+
+                <div class="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 fade-in">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Annual Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                        <p class="text-white text-sm font-medium">Annual Day</p>
+                    </div>
+                </div>
+
+                <div class="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 fade-in">
+                    <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=800&q=80" alt="Sports Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                        <p class="text-white text-sm font-medium">Sports Day</p>
+                    </div>
+                </div>
+
+                <div class="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 fade-in">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80" alt="Independence Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                        <p class="text-white text-sm font-medium">Independence Day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">News & Events</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">Stay updated with the latest happenings, achievements, and announcements</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110a6f2?w=600&q=80" alt="Admissions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold">Admissions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 text-gray-500 text-sm mb-3">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>December 15, 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-3 font-poppins">Admissions Open for 2026-27</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">We are now accepting applications for the upcoming academic session. Limited seats available.</p>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Read More</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=80" alt="Sports Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold">Events</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 text-gray-500 text-sm mb-3">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>December 10, 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-3 font-poppins">Annual Sports Day 2025</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Our annual sports day witnessed enthusiastic participation from students across all grades.</p>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Read More</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80" alt="Science Fair" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold">Achievements</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 text-gray-500 text-sm mb-3">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>December 5, 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-3 font-poppins">Science Exhibition Winners</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Congratulations to all winners of the Inter-House Science Exhibition.</p>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Read More</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 fade-in">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&q=80" alt="Winter Vacation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold">Holiday Notice</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 text-gray-500 text-sm mb-3">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>December 1, 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-primary mb-3 font-poppins">Winter Vacation Notice</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">School will remain closed from December 24, 2025 to January 5, 2026.</p>
+                        <a href="#" class="inline-flex items-center space-x-2 text-primary font-semibold text-sm group-hover:text-secondary transition-colors">
+                            <span>Read More</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">What People Say</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">Hear from our parents, students, and teachers about their experience at Essence Public School</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-2xl p-8 md:p-12 fade-in">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center">
+                            <i data-lucide="quote" class="w-8 h-8 text-secondary"></i>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center mb-6">
+                        <i data-lucide="star" class="w-6 h-6 text-secondary fill-secondary"></i>
+                        <i data-lucide="star" class="w-6 h-6 text-secondary fill-secondary"></i>
+                        <i data-lucide="star" class="w-6 h-6 text-secondary fill-secondary"></i>
+                        <i data-lucide="star" class="w-6 h-6 text-secondary fill-secondary"></i>
+                        <i data-lucide="star" class="w-6 h-6 text-secondary fill-secondary"></i>
+                    </div>
+
+                    <p class="text-lg md:text-xl text-gray-700 text-center leading-relaxed mb-8 italic">
+                        "Essence Public School has been instrumental in shaping my child's future. The teachers are dedicated, the curriculum is comprehensive, and the focus on holistic development is remarkable."
+                    </p>
+
+                    <div class="flex items-center justify-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Mr. Rajesh Kumar" class="w-16 h-16 rounded-full object-cover border-4 border-secondary">
+                        <div class="text-center">
+                            <h4 class="text-lg font-bold text-primary font-poppins">Mr. Rajesh Kumar</h4>
+                            <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="admissions" class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-poppins">Admissions Open for 2026-27</h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">Join Essence Public School and embark on a journey of excellence. Limited seats available. Apply now to secure your child's future.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#" class="group flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+                        <span>Apply Today</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle max-w-3xl mx-auto">We'd love to hear from you. Contact us for admissions, queries, or to schedule a campus visit.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6 slide-in-left">
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-1 font-poppins">Address</h3>
+                                <p class="text-gray-600">123 Education Lane, Knowledge Park, New Delhi - 110001, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-1 font-poppins">Phone</h3>
+                                <a href="tel:+911112345678" class="text-gray-600 hover:text-primary transition-colors">+91 11 1234 5678</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-1 font-poppins">Email</h3>
+                                <a href="mailto:info@essencepublicschool.edu.in" class="text-gray-600 hover:text-primary transition-colors">info@essencepublicschool.edu.in</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-1 font-poppins">Working Hours</h3>
+                                <p class="text-gray-600">Monday - Friday: 8:00 AM - 3:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-in-right">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold text-primary mb-6 font-poppins">Send us a Message</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label htmlFor="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Enter your full name">
+                            </div>
+
+                            <div>
+                                <label htmlFor="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Enter your email address">
+                            </div>
+
+                            <div>
+                                <label htmlFor="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Enter your phone number">
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                                <textarea id="message" name="message" required rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="How can we help you?"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-secondary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 group">
+                                <span>Send Message</span>
+                                <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary font-bold text-xl">EP</div>
+                        <div>
+                            <h3 class="text-xl font-bold font-poppins">Essence Public School</h3>
+                            <p class="text-sm text-gray-300 italic">Inspiring Minds, Building Futures</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Nurturing excellence in education since 1995. Building futures through holistic development and academic excellence.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 font-poppins">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">About</a></li>
+                        <li><a href="#academics" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">Academics</a></li>
+                        <li><a href="#facilities" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">Facilities</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-secondary transition-colors duration-200 text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 font-poppins">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5"></i>
+                            <span class="text-gray-300 text-sm">123 Education Lane, Knowledge Park, New Delhi - 110001, India</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-secondary flex-shrink-0"></i>
+                            <a href="tel:+911112345678" class="text-gray-300 hover:text-secondary transition-colors text-sm">+91 11 1234 5678</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-secondary flex-shrink-0"></i>
+                            <a href="mailto:info@essencepublicschool.edu.in" class="text-gray-300 hover:text-secondary transition-colors text-sm">info@essencepublicschool.edu.in</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 font-poppins">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-primary transition-all duration-300">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-8 text-center">
+                <p class="text-gray-300 text-sm">© 2025 Essence Public School. All rights reserved. | <a href="#" class="hover:text-secondary transition-colors">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg', 'py-3');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('shadow-lg', 'py-3');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
