@@ -173,7 +173,7 @@ export const schoolConfig: SchoolConfig = {
   hero: {
     headline: "Empowering Young Minds for a Brighter Tomorrow",
     subheading: "Admissions Open for Session 2026-27",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80",
+    image: "images/School.png",
     ctaButtons: [
       { text: "Apply Now", href: "/admissions", variant: "primary" },
       { text: "Contact Us", href: "/contact", variant: "secondary" },
