@@ -1,3 +1,6 @@
+import { StaticImageData } from "next/image";
+import SchoolImage from "../images/School.png"
+
 export interface SchoolConfig {
   // Branding
   name: string;
@@ -39,7 +42,7 @@ export interface SchoolConfig {
   hero: {
     headline: string;
     subheading: string;
-    image: string;
+    image: StaticImageData;
     ctaButtons: Array<{
       text: string;
       href: string;
@@ -168,12 +171,13 @@ export const schoolConfig: SchoolConfig = {
     { name: "News & Events", href: "/#news" },
     { name: "Contact", href: "/contact" },
   ],
-  
+
+
   // Hero Section
   hero: {
     headline: "Empowering Young Minds for a Brighter Tomorrow",
     subheading: "Admissions Open for Session 2026-27",
-    image: "/images/School.png",
+    image: SchoolImage,
     ctaButtons: [
       { text: "Apply Now", href: "/admissions", variant: "primary" },
       { text: "Contact Us", href: "/contact", variant: "secondary" },
@@ -450,6 +454,6 @@ export const schoolConfig: SchoolConfig = {
       "admissions open",
       "top school India",
     ],
-    ogImage: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80",
+    ogImage: "/images/School.png",
   },
 }
