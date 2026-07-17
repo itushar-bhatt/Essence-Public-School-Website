@@ -92,6 +92,7 @@ export default function Navbar() {
 
             {/* Admission Button */}
             <Link
+            
               href="/admissions"
               className="bg-secondary text-primary px-5 py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
             >

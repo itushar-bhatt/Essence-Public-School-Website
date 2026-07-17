@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function AdmissionsPage() {
   return (
-    <div className="min-h-screen">
+    <section id="admissions" className="min-h-screen scroll-mt-24">
       <CTA />
       <Contact />
-    </div>
+    </section>
   );
 }

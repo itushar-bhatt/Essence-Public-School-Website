@@ -163,13 +163,13 @@ export const schoolConfig: SchoolConfig = {
   // Navigation
   navigation: [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Academics", href: "/academics" },
+    { name: "About", href: "/#about" },
+    { name: "Academics", href: "/#academics" },
     { name: "Admissions", href: "/admissions" },
     { name: "Facilities", href: "/#facilities" },
-    { name: "Gallery", href: "/gallery" },
+    { name: "Gallery", href: "/#gallery" },
     { name: "News & Events", href: "/#news" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/#contact" },
   ],
 
 

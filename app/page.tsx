@@ -9,6 +9,7 @@ import News from '@/components/News';
 import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
 import Contact from '@/components/Contact';
+import { ADLaM_Display } from 'next/font/google';
 
 export default function Home() {
   return (
