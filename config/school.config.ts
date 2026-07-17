@@ -144,11 +144,11 @@ export const schoolConfig: SchoolConfig = {
   
   // Contact Information
   contact: {
-    address: "123 Education Lane, Knowledge Park, New Delhi - 110001, India",
-    phone: "+91 11 1234 5678",
+    address: "Khora Colony, Hayat Nagar, Opp CNG Petrol Pump, Ghaziabad, Uttar Pradesh 201020, India",
+    phone: "+91 9999083299",
     email: "info@essencepublicschool.edu.in",
     workingHours: "Monday - Friday: 8:00 AM - 3:00 PM",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d77.2!3d28.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzA1LjQiTiA3NcKwMTAnMjguNCJF!5e0!3m2!1sen!2sin!4v1234567890",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.3471363390036!2d77.34065387550031!3d28.619356375672016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce524b9e6b32d%3A0x930365f7150d6a32!2sEssence%20Public%20School!5e0!3m2!1sen!2sin!4v1784283340208!5m2!1sen!2sin%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22strict-origin-when-cross-origin",
   },
   
   // Social Media
